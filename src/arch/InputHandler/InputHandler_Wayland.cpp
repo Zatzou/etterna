@@ -408,27 +408,6 @@ wl_pointer_axis_discrete(void* data,
 	// ignored event
 }
 
-static void
-wl_pointer_axis_value120(void* data,
-						 struct wl_pointer* pointer,
-						 uint32_t axis,
-						 int32_t value)
-{
-	// TODO: this should probably also send mouse wheel events
-	// this is the event for "high precision" scrolling but I don't if wayland
-	// also fires normal scroll events when a high precision device is used so
-	// not sure if this needs to be handled seperately.
-}
-
-static void
-wl_pointer_axis_relative_direction(void* data,
-								   struct wl_pointer* pointer,
-								   uint32_t axis,
-								   uint32_t direction)
-{
-	// ignored event
-}
-
 static const struct wl_pointer_listener wl_pointer_listener = {
 	.enter = wl_pointer_enter,
 	.leave = wl_pointer_leave,
@@ -439,8 +418,6 @@ static const struct wl_pointer_listener wl_pointer_listener = {
 	.axis_source = wl_pointer_axis_source,
 	.axis_stop = wl_pointer_axis_stop,
 	.axis_discrete = wl_pointer_axis_discrete,
-	.axis_value120 = wl_pointer_axis_value120,
-	.axis_relative_direction = wl_pointer_axis_relative_direction,
 };
 
 InputHandler_Wayland::InputHandler_Wayland()
