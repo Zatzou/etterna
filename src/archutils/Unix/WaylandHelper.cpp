@@ -173,23 +173,23 @@ global_registry_handler(void* data,
 	if (strcmp(interface, wl_compositor_interface.name) == 0) {
 		// The compositor object is used to create surfaces
 		WaylandHelper::compositor = (wl_compositor*)wl_registry_bind(
-		  registry, name, &wl_compositor_interface, version);
+		  registry, name, &wl_compositor_interface, 5);
 	} else if (strcmp(interface, xdg_wm_base_interface.name) == 0) {
 		// The xdg_wm_base gives access to the xdg shell, which is used to tell
 		// the shell details about the window
 		WaylandHelper::wm_base = (xdg_wm_base*)wl_registry_bind(
-		  registry, name, &xdg_wm_base_interface, version);
+		  registry, name, &xdg_wm_base_interface, 6);
 	} else if (strcmp(interface, wl_seat_interface.name) == 0) {
 		// The seat interface handles input devices
-		WaylandHelper::seat = (wl_seat*)wl_registry_bind(
-		  registry, name, &wl_seat_interface, version);
+		WaylandHelper::seat =
+		  (wl_seat*)wl_registry_bind(registry, name, &wl_seat_interface, 7);
 
 		// We will also listen for the seat events
 		wl_seat_add_listener(WaylandHelper::seat, &wl_seat_listener, nullptr);
 	} else if (strcmp(interface, wl_output_interface.name) == 0) {
 		// Outputs are used to get the display information
-		wl_output* output = (wl_output*)wl_registry_bind(
-		  registry, name, &wl_output_interface, version);
+		wl_output* output =
+		  (wl_output*)wl_registry_bind(registry, name, &wl_output_interface, 4);
 
 		// Create a new output info object to store the information
 		WaylandHelper::OutputInfo* info = new WaylandHelper::OutputInfo();
@@ -200,7 +200,7 @@ global_registry_handler(void* data,
 		// The shared memory object is used to create a buffer for the mouse
 		// cursor
 		WaylandHelper::shm =
-		  (wl_shm*)wl_registry_bind(registry, name, &wl_shm_interface, version);
+		  (wl_shm*)wl_registry_bind(registry, name, &wl_shm_interface, 1);
 	}
 }
 
