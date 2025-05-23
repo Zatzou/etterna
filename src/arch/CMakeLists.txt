@@ -174,6 +174,8 @@ else() # Unix/Linux
   endif()
     list(APPEND SMDATA_ARCH_INPUT_SRC "InputHandler/InputHandler_X11.cpp")
     list(APPEND SMDATA_ARCH_INPUT_HPP "InputHandler/InputHandler_X11.h")
+    list(APPEND SMDATA_ARCH_INPUT_SRC "InputHandler/InputHandler_Wayland.cpp")
+    list(APPEND SMDATA_ARCH_INPUT_HPP "InputHandler/InputHandler_Wayland.h")
   
 endif()
 source_group("Arch Specific\\\\Input Handler" FILES ${SMDATA_ARCH_INPUT_SRC} ${SMDATA_ARCH_INPUT_HPP})
