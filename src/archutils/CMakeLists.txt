@@ -80,6 +80,8 @@ if(NOT APPLE AND UNIX)
 
 	list(APPEND OS_SRC "Unix/X11Helper.cpp")
 	list(APPEND OS_HPP "Unix/X11Helper.h")
+	list(APPEND OS_SRC "Unix/WaylandProtocols/xdg-shell-protocol.c")
+	list(APPEND OS_HPP "Unix/WaylandProtocols/xdg-shell-client-protocol.h")
 	list(APPEND OS_SRC "Common/PthreadHelpers.cpp")
 	list(APPEND OS_HPP "Common/PthreadHelpers.h")
 endif()
