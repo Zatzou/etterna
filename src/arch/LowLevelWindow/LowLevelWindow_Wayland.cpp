@@ -14,11 +14,13 @@ LowLevelWindow_Wayland::LowLevelWindow_Wayland()
 	// Wayland-specific initialization can go here
 	if (!OpenWaylandConnection()) {
 		Locator::getLogger()->error("Failed to connect to Wayland display");
+		RageException::Throw("Failed to connect to Wayland display");
 	}
 
 	// use OpenGL instead of OpenGL ES
 	if (!eglBindAPI(EGL_OPENGL_API)) {
 		Locator::getLogger()->error("Failed to bind OpenGL API");
+		RageException::Throw("Failed to bind OpenGL API");
 	}
 
 	this->edisplay = EGL_NO_DISPLAY;
