@@ -422,6 +422,10 @@ static const struct wl_pointer_listener wl_pointer_listener = {
 
 InputHandler_Wayland::InputHandler_Wayland()
 {
+	xkbContext = nullptr;
+	keymap = nullptr;
+	xkbState = nullptr;
+
 	// check that we have a wayland seat if not we should immediately return
 	if (seat == nullptr) {
 		return;
