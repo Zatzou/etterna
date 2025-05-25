@@ -101,6 +101,8 @@ elseif(APPLE)
   list(APPEND SMDATA_ARCH_LOWLEVEL_HPP "LowLevelWindow/LowLevelWindow_MacOSX.h")
   
 else(UNIX)
+    list(APPEND SMDATA_ARCH_LOWLEVEL_SRC "LowLevelWindow/LowLevelWindow_Linux.cpp")
+    list(APPEND SMDATA_ARCH_LOWLEVEL_HPP "LowLevelWindow/LowLevelWindow_Linux.h")
     list(APPEND SMDATA_ARCH_LOWLEVEL_SRC "LowLevelWindow/LowLevelWindow_X11.cpp")
     list(APPEND SMDATA_ARCH_LOWLEVEL_HPP "LowLevelWindow/LowLevelWindow_X11.h")
     list(APPEND SMDATA_ARCH_LOWLEVEL_SRC "LowLevelWindow/LowLevelWindow_Wayland.cpp")

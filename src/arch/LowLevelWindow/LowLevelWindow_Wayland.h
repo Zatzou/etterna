@@ -36,8 +36,11 @@ class LowLevelWindow_Wayland : public LowLevelWindow
 };
 
 #ifdef ARCH_LOW_LEVEL_WINDOW
+#if ARCH_LOW_LEVEL_WINDOW != LowLevelWindow_Linux
 #error "More than one LowLevelWindow selected!"
 #endif
+#else
 #define ARCH_LOW_LEVEL_WINDOW LowLevelWindow_Wayland
+#endif
 
 #endif
